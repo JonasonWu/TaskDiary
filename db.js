@@ -14,7 +14,7 @@ const User = new mongoose.Schema({
 });
 
 const CurrentTask = new mongoose.Schema({
-	user: String, // a reference to a User object
+	user: Number, // a reference to a User object
 	createdAt: String, //Time of creation of this object
 	title: String, //The subject or focus of the task
 	taskDetails: [], //an array that stores details of the task (via bullet points).
@@ -24,7 +24,7 @@ const CurrentTask = new mongoose.Schema({
 
 
 const CompletedTask = new mongoose.Schema({
-	user: String, // a reference to a User object
+	user: Number, // a reference to a User object
 	createdAt: String, //Time of creation of this object
 	title: String, //The subject or focus of the task
 	taskDetails: [], //an array that stores details of the task (via bullet points).
@@ -33,7 +33,7 @@ const CompletedTask = new mongoose.Schema({
 });
 
 const Diary = new mongoose.Schema({
-	user: String, // a reference to a User object.
+	user: Number, // a reference to a User object.
 	createdAt: String, //Time of creation of this object. 
 	date: String, //The date the diary is for.
 	title: String, //The subject or focus of the diary. (data + title will be the title of the diary page shown to the user)

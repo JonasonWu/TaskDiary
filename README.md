@@ -3,10 +3,9 @@
 
 ## Overview
 
-There are many tasks to do every day. In order to keep track of the tasks to do, we may use a text document or Post-its. However, the general result is that the details of the task will be deleted or thrown away once the task is completed. With so many tasks that are done each day, it will become hard to keep track of the times that the specific tasks have been completed.
+There are many tasks to do every day. In order to keep track of the tasks to do, we may use a text document or Post-its. With so many tasks that are done each day, it will become hard to keep track of the tasks that are completed and tasks that still need to be done. However, the general result is that the details of the task will be deleted or thrown away once the task is completed. 
 
-Task Diary is a web application that attempts to keep track of every task that the user adds to the app, even after completion. Multiple timestamps will be added to each task to help the user recall the details of the task. The user could also optionally write a diary using the app with the assistance of a list of new objectives and completed tasks of the day.
-
+Task Diary is a web application that attempts to keep it simple and easy to manage every task that the user adds to the app. Multiple timestamps will be added to each task to help the user recall the details of the task. The user could also optionally write a diary using the app, assisted by a list of completed tasks and new tasks to do.
 
 ## Data Model
 
@@ -22,11 +21,11 @@ An Example User:
 ```javascript
 {
   username: "user1",
-  hash: // a password hash,
-  CurrentTasks: // an array of references to the current tasks of the user
-  CompletedTasks: //an array of references to the completed tasks of the user
-  CurrentTasksGroupNames: //an array of group names that the user creates to sort the current tasks
-  Diary: //an array of references to the diary pages of the user
+  hash: ,// a password hash,
+  CurrentTasks: [12, 14, 17], // an array of references to the current tasks of the user
+  CompletedTasks: [5, 7, 19], //an array of references to the completed tasks of the user
+  CurrentTasksGroupNames: ["Urgent", "Not Urgent", "Long Term"], //an array of group names that the user creates to sort the current tasks
+  Diary: [12, 19, 22]//an array of references to the diary pages of the user
 }
 ```
 
@@ -34,12 +33,12 @@ An Example CurrentTask:
 
 ```javascript
 {
-  user: // a reference to a User object
-  createdAt: //Time of creation of this object
-  title: //The subject or focus of the task
-  taskDetails: //an array that stores details of the task (via bullet points).
-  estimatedCompletionTime: //The amount of time that it may take to finish the task 
-  group: //The index of the group to display the current task on
+  user: 12, // a reference to a User object
+  createdAt: ,//Time of creation of this object. Time stamp
+  title: "Wash the car",//The subject or focus of the task
+  taskDetails: ["Drive to Washing place", "Ask for a normal wash", "Wait for car to finish washing", "Drive home"], //an array that stores details of the task (via bullet points).
+  estimatedCompletionTime: "2 hours", //The amount of time that it may take to finish the task 
+  group: 1 //The index of the group to display the current task on
 }
 ```
 
