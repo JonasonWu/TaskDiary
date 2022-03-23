@@ -1,94 +1,126 @@
-The content below is an example project proposal / requirements document. Replace the text below the lines marked "__TODO__" with details specific to your project. Remove the "TODO" lines.
 
-(__TODO__: your project name_)
-
-# Shoppy Shoperson 
+# Task Diary
 
 ## Overview
 
-(__TODO__: a brief one or two paragraph, high-level description of your project_)
+There are many tasks to do every day. In order to keep track of the tasks to do, we may use a text document or Post-its. However, the general result is that the details of the task will be deleted or thrown away once the task is completed. With so many tasks that are done each day, it will become hard to keep track of the times that the specific tasks have been completed.
 
-Remembering what to buy at the grocery store is waaaaay too difficult. Also, shopping for groceries when you're hungry leads to regrettable purchases. Sooo... that's where Shoppy Shoperson comes in!
-
-Shoppy Shoperson is a web app that will allow users to keep track of multiple grocery lists. Users can register and login. Once they're logged in, they can create or view their grocery list. For every list that they have, they can add items to the list or cross off items.
+Task Diary is a web application that attempts to keep track of every task that the user adds to the app, even after completion. Multiple timestamps will be added to each task to help the user recall the details of the task. The user could also optionally write a diary using the app with the assistance of a list of new objectives and completed tasks of the day.
 
 
 ## Data Model
 
-(__TODO__: a description of your application's data and their relationships to each other_) 
+The application will store User, CurrentTask, CompletedTask, and Diary
 
-The application will store Users, Lists and Items
-
-* users can have multiple lists (via references)
-* each list can have multiple items (by embedding)
-
-(__TODO__: sample documents_)
+* Each User stores references to the CurrentTask, CompletedTask, and Diary objects (via references)
+* Each CurrentTask object will include the current tasks that the user has not completed
+* Each CompletedTask object stores a completed task that the user completed
+* Each Diary object stores the details of a day.
 
 An Example User:
 
 ```javascript
 {
-  username: "shannonshopper",
+  username: "user1",
   hash: // a password hash,
-  lists: // an array of references to List documents
+  CurrentTasks: // an array of references to the current tasks of the user
+  CompletedTasks: //an array of references to the completed tasks of the user
+  CurrentTasksGroupNames: //an array of group names that the user creates to sort the current tasks
+  Diary: //an array of references to the diary pages of the user
 }
 ```
 
-An Example List with Embedded Items:
+An Example CurrentTask:
 
 ```javascript
 {
   user: // a reference to a User object
-  name: "Breakfast foods",
-  items: [
-    { name: "pancakes", quantity: "9876", checked: false},
-    { name: "ramen", quantity: "2", checked: true},
-  ],
-  createdAt: // timestamp
+  createdAt: //Time of creation of this object
+  title: //The subject or focus of the task
+  taskDetails: //an array that stores details of the task (via bullet points).
+  estimatedCompletionTime: //The amount of time that it may take to finish the task 
+  group: //The index of the group to display the current task on
+}
+```
+
+An Example CompletedTask:
+
+```javascript
+{
+  user: // a reference to a User object
+  createdAt: //Time of creation of this object
+  title: //The subject or focus of the task (written by user)
+  taskDetails: //an array that stores details of the task (via bullet points by the user).
+  estimatedCompletionTime: //The amount of time the user thinks it may take to finish the task 
+  completedAt: //Finish time of the task
+}
+```
+
+An Example Diary:
+
+```javascript
+{
+  user: // a reference to a User object.
+  createdAt: //Time of creation of this object. 
+  date: //The date the diary is for.
+  title: //The subject or focus of the diary. (data + title will be the title of the diary page shown to the user)
+  details: //The diary record for the day
+  completedAt: //Finish time of the task
 }
 ```
 
 
 ## [Link to Commented First Draft Schema](db.js) 
 
-(__TODO__: create a first draft of your Schemas in db.js and link to it_)
-
 ## Wireframes
 
-(__TODO__: wireframes for all of the pages on your site; they can be as simple as photos of drawings or you can use a tool like Balsamiq, Omnigraffle, etc._)
+/login - login page of the web app. <!-- The site might or might not try logging in through google first. -->
 
-/list/create - page for creating a new shopping list
+![login page](documentation/login.jpg)
 
-![list create](documentation/list-create.png)
+/new - page to create a new account
 
-/list - page for showing all shopping lists
+![new account page](documentation/new.jpg)
 
-![list](documentation/list.png)
+/main - page that indicates features of the web application
 
-/list/slug - page for showing specific shopping list
+![main page](documentation/main.jpg)
 
-![list](documentation/list-slug.png)
+/main/current - page that includes all the current tasks
+
+![current tasks](documentation/main-current.jpg)
+
+/main/completed - page that indicates all completed tasks
+
+![completed tasks](documentation/main-completed.jpg)
+
+/main/diary - page that includes all the diary entries
+
+![diary entries](documenation/main-diary.jpg)
 
 ## Site map
 
-(__TODO__: draw out a site map that shows how pages are related to each other_)
-
-Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia/commons/2/20/Sitemap_google.jpg), but you can create one without the screenshots, drop shadows, etc. ... just names of pages and where they flow to.
+![Site map](documentation/sitemap.jpg)
 
 ## User Stories or Use Cases
 
-(__TODO__: write out how your application will be used through [user stories](http://en.wikipedia.org/wiki/User_story#Format) and / or [use cases](https://www.mongodb.com/download-center?jmp=docs&_ga=1.47552679.1838903181.1489282706#previous)_)
+1. as non-registered user, I can register a new account with the site.
+2. as a user, I can log in to the site.
+3. as a user, I access the current tasks, completed tasks, and diary.
+4. as a user, I add a new task to the current tasks page.
+5. as a user, I can check off the task and details of the task to indicate completion.
+6. as a user, I can edit the tasks that was already created.
+7. as a user, I can create groups for the current tasks page to sort the tasks.
+8. as a user, I can search specific diary entries that I previously wrote.
+9. as a user, I can create a new diary entry.
+10. as a user, I can see all the completed tasks.
 
-1. as non-registered user, I can register a new account with the site
-2. as a user, I can log in to the site
-3. as a user, I can create a new grocery list
-4. as a user, I can view all of the grocery lists I've created in a single list
-5. as a user, I can add items to an existing grocery list
-6. as a user, I can cross off items in an existing grocery list
+<!--
+11. as a user, I can delete completed tasks.
+12. as a user, I can log out.
+ -->
 
 ## Research Topics
-
-(__TODO__: the research topics that you're planning on working on along with their point values... and the total points of research topics listed_)
 
 * (5 points) Integrate user authentication
     * I'm going to be using passport for user authentication
@@ -106,12 +138,8 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
 
 ## [Link to Initial Main Project File](app.js) 
 
-(__TODO__: create a skeleton Express application with a package.json, app.js, views folder, etc. ... and link to your initial app.js_)
-
 ## Annotations / References Used
 
-(__TODO__: list any tutorials/references/etc. that you've based your code off of_)
-
-1. [passport.js authentication docs](http://passportjs.org/docs) - (add link to source code that was based on this)
-2. [tutorial on vue.js](https://vuejs.org/v2/guide/) - (add link to source code that was based on this)
+1. [passport.js authentication docs](http://passportjs.org/docs) - (db.js, /routes/index.js)
+<!-- 2. [tutorial on vue.js](https://vuejs.org/v2/guide/) - (add link to source code that was based on this) -->
 

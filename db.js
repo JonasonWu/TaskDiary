@@ -7,21 +7,23 @@ const User = new mongoose.Schema({
 	username: {type: String, required: true, minlength: 3},
     password: {type: String, required: true}, //We will store the hash+salt together
 	CurrentTasks: [],
+	CurrentTasksGroupNames: [],
 	CompletedTasks: [],
 	Diary: []
   	// lists:  [{ type: mongoose.Schema.Types.ObjectId, ref: 'List' }]
 });
 
-const CurrentTasks = new mongoose.Schema({
+const CurrentTask = new mongoose.Schema({
 	user: String, // a reference to a User object
 	createdAt: String, //Time of creation of this object
 	title: String, //The subject or focus of the task
 	taskDetails: [], //an array that stores details of the task (via bullet points).
-	estimatedCompletionTime: Number //The amount of time that it may take to finish the task 
+	estimatedCompletionTime: Number, //The amount of time that it may take to finish the task 
+	group: Number
 });
 
 
-const CompletedTasks = new mongoose.Schema({
+const CompletedTask = new mongoose.Schema({
 	user: String, // a reference to a User object
 	createdAt: String, //Time of creation of this object
 	title: String, //The subject or focus of the task
@@ -60,7 +62,7 @@ const Diary = new mongoose.Schema({
 // List.plugin(URLSlugs('name'));
 
 mongoose.model('User', User);
-mongoose.model('CurrentTasks', CurrentTasks);
-mongoose.model('CompletedTasks', CompletedTasks);
+mongoose.model('CurrentTask', CurrentTask);
+mongoose.model('CompletedTask', CompletedTask);
 mongoose.model('Diary', Diary);
 mongoose.connect('mongodb://localhost/TaskDiary');
