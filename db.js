@@ -1,7 +1,7 @@
-const mongoose = require('mongoose'),
-	URLSlugs = require('mongoose-url-slugs'),
-  	passportLocalMongoose = require('passport-local-mongoose');
-
+// const mongoose = require('mongoose'),
+// 	URLSlugs = require('mongoose-url-slugs'),
+//   	passportLocalMongoose = require('passport-local-mongoose');
+const mongoose = require('mongoose');
 
 const User = new mongoose.Schema({
 	username: {type: String, required: true, minlength: 3},
@@ -10,7 +10,7 @@ const User = new mongoose.Schema({
 	CurrentTasksGroupNames: [],
 	CompletedTasks: [],
 	Diary: []
-  	// lists:  [{ type: mongoose.Schema.Types.ObjectId, ref: 'List' }]
+	// lists:  [{ type: mongoose.Schema.Types.ObjectId, ref: 'List' }]
 });
 
 const CurrentTask = new mongoose.Schema({
