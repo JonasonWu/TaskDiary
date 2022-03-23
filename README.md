@@ -29,7 +29,7 @@ An Example User:
 }
 ```
 
-An Example CurrentTask:
+Examples of CurrentTask:
 
 ```javascript
 {
@@ -69,11 +69,11 @@ An Example Diary:
 
 ```javascript
 {
-  user: // a reference to a User object.
-  createdAt: //Time of creation of this object. 
-  date: //The date the diary is for.
-  title: //The subject or focus of the diary. (data + title will be the title of the diary page shown to the user)
-  details: //The diary record for the day
+  user: 12, // a reference to a User object.
+  createdAt: ,//Time of creation of this object. 
+  date: "3/23/22" ,//The date the diary is for.
+  title: "Great day", //The subject or focus of the diary page. (data + title will be the title of the diary page shown to the user)
+  details: "It was raining in the morning. I went home early this evening.",//The diary record for the day
   completedAt: //Finish time of the task
 }
 ```
