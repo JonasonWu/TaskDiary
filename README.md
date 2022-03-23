@@ -41,16 +41,26 @@ An Example CurrentTask:
   group: 1 //The index of the group to display the current task on
 }
 ```
+```javascript
+{
+  user: 14, // a reference to a User object
+  createdAt: ,//Time of creation of this object. Time stamp
+  title: "",//The subject or focus of the task
+  taskDetails: [], //an array that stores details of the task (via bullet points).
+  estimatedCompletionTime: "", //The amount of time that it may take to finish the task 
+  group: 1 //The index of the group to display the current task on
+}
+```
 
 An Example CompletedTask:
 
 ```javascript
 {
-  user: // a reference to a User object
-  createdAt: //Time of creation of this object
-  title: //The subject or focus of the task (written by user)
-  taskDetails: //an array that stores details of the task (via bullet points by the user).
-  estimatedCompletionTime: //The amount of time the user thinks it may take to finish the task 
+  user: 5, // a reference to a User object
+  createdAt: ,//Time of creation of this object
+  title: "Walk home", //The subject or focus of the task (written by user)
+  taskDetails: ["Go home"], //an array that stores details of the task (via bullet points by the user).
+  estimatedCompletionTime: "10 minutes", //The amount of time the user thinks it may take to finish the task 
   completedAt: //Finish time of the task
 }
 ```
