@@ -105,7 +105,7 @@ An Example Diary:
 
 /main/diary - page that includes all the diary entries
 
-![diary entries](documenation/main-diary.jpg)
+![diary entries](documentation/main-diary.jpg)
 
 ## Site map
 
