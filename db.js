@@ -6,10 +6,10 @@ const mongoose = require('mongoose');
 const User = new mongoose.Schema({
 	username: {type: String, required: true, minlength: 3},
     password: {type: String, required: true}, //We will store the hash+salt together
-	CurrentTasks: [],
-	CurrentTasksGroupNames: [],
-	CompletedTasks: [],
-	Diary: []
+	CurrentTasks: [Number],
+	CurrentTasksGroupNames: [String],
+	CompletedTasks: [Number],
+	Diary: [Number]
 	// lists:  [{ type: mongoose.Schema.Types.ObjectId, ref: 'List' }]
 });
 
@@ -17,7 +17,7 @@ const CurrentTask = new mongoose.Schema({
 	user: Number, // a reference to a User object
 	createdAt: String, //Time of creation of this object
 	title: String, //The subject or focus of the task
-	taskDetails: [], //an array that stores details of the task (via bullet points).
+	taskDetails: [String], //an array that stores details of the task (via bullet points).
 	estimatedCompletionTime: Number, //The amount of time that it may take to finish the task 
 	group: Number
 });
@@ -27,7 +27,7 @@ const CompletedTask = new mongoose.Schema({
 	user: Number, // a reference to a User object
 	createdAt: String, //Time of creation of this object
 	title: String, //The subject or focus of the task
-	taskDetails: [], //an array that stores details of the task (via bullet points).
+	taskDetails: [String], //an array that stores details of the task (via bullet points).
 	estimatedCompletionTime: Number, //The amount of time that it may take to finish the task 
 	completedAt: String
 });
