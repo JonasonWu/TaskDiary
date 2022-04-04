@@ -50,4 +50,18 @@ router.post('/newTask', async (req, res) => {
     res.redirect('/main/current');
 });
 
+router.post('/deleteALL', async (req, res) => {
+    //TODO: May want to move this to the completedTasks section
+    //Alternative: Delete all tasks means to move all tasks into the completedTask section
+    if (req.body.delete === "true") {
+        await CurrentTasks.deleteMany({}).then(function() {
+            console.log("Data Deleted");
+        }).catch(function(error) {
+            console.error(error);
+        });
+    }
+    res.redirect('/main/current');
+    
+});
+
 module.exports = router;
