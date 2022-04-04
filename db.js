@@ -67,16 +67,6 @@ mongoose.model('CompletedTask', CompletedTask);
 mongoose.model('Diary', Diary);
 
 
-
-// OPTIONAL: modify the connection code below if
-// using mongodb authentication
-const mongooseOpts = {
-	useNewUrlParser: true,  
-	useUnifiedTopology: true
-}; 
-
-
-
 // is the environment variable, NODE_ENV, set to PRODUCTION? 
 let dbconf;
 if (process.env.NODE_ENV === 'PRODUCTION') {
@@ -95,6 +85,15 @@ if (process.env.NODE_ENV === 'PRODUCTION') {
 	// if we're not in PRODUCTION mode, then use
 	dbconf = 'mongodb://localhost/TaskDiary';
 }
+
+
+
+// OPTIONAL: modify the connection code below if
+// using mongodb authentication
+const mongooseOpts = {
+	useNewUrlParser: true,  
+	useUnifiedTopology: true
+}; 
 
 //This is for the connection for deployment
 mongoose.connect(dbconf, mongooseOpts, (err) => {
