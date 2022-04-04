@@ -3,6 +3,17 @@ body {
   font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+form {
+	display: block;
+	width: 80%;
+	background-color: lightgreen;
+	padding: 10px;
+	border-radius: 5px;
+}
+form input {
+	margin: 5px;
+}
+
 a {
   color: #0073AA;
 }

@@ -1,0 +1,47 @@
+
+<h1>Current Tasks</h1>
+
+{{#if noData}}
+    No Current Tasks! Good job!
+{{/if}}
+
+
+{{!-- <form method="POST" action="/main/current/update"> --}}
+{{!-- <input type="submit" value="Update Completed Tasks"> --}}
+<ul> <!--As potential improvement, add contentedible="true" into the mix-->
+{{#each data as |d|}}
+{{!-- <input type="checkbox" name={{d.user}}> --}}
+        <li>
+            {{d.title}} 
+            <ol>
+                {{#each d.taskDetails as |td|}}
+                <li>
+                    {{td}}
+                </li>
+                {{/each}}
+            </ol>
+        </li>
+{{/each}}
+</ul>
+
+{{!-- </form> --}}
+
+<!-- This form adds a new task -->
+<form method="POST" action="/main/current/newTask">
+<p>Create New Task</p>
+<input placeholder="Task Name" type="text" name="title">
+<input placeholder="Detail 1" type="text" name="detail1">
+<input placeholder="Detail 2" type="text" name="detail2">
+<input placeholder="Detail 3" type="text" name="detail3">
+<input placeholder="Detail 4" type="text" name="detail4">
+<input placeholder="Detail 5" type="text" name="detail5">
+{{!-- <input placeholder="Completion Time" type="Number" name="time"> --}}
+
+<!--
+Make a selection option for choosing group # to add to.
+-->
+
+<input type="submit" value="Create">
+
+</form>
+
