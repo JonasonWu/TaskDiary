@@ -3,6 +3,8 @@
 const {By, Key, Builder} = require("selenium-webdriver");
 require("chromedriver");
 
+//Note: this is just an example test that works. It is not really
+//  a test I will need for my web app.
 async function example() {
     const searchString = "Automation testing with Selenium and JavaScript";
 
