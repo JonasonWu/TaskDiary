@@ -149,6 +149,8 @@ An Example Diary:
 
 ## Annotations / References Used
 
-1. [passport.js authentication docs](http://passportjs.org/docs) - ([db.js](db.js), [index.js](/routes/index.js))
+1. [selenium intro](https://www.lambdatest.com/blog/automation-testing-with-selenium-javascript/) - [RouteTesting.js](/tests/RouteTesting.js)
+
+<!-- 1. [passport.js authentication docs](http://passportjs.org/docs) - ([db.js](db.js), [index.js](/routes/index.js)) -->
 <!-- 2. [tutorial on vue.js](https://vuejs.org/v2/guide/) - (add link to source code that was based on this) -->
 
