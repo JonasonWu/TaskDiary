@@ -3,7 +3,7 @@
 const path = require('path');
 const chai = require('chai');
 const expect = chai.expect; 
-const modulePath = path.join(__dirname, '../');
+const modulePath = path.join(__dirname, '../MemoryGame/memoryFunctions.js');
 const c = require(modulePath);
 console.log(modulePath);
 

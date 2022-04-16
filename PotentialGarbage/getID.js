@@ -20,7 +20,7 @@ async function findCurrentTaskNumber(username) {
             user = await User.find({CurrentTasks: number}).exec();
         }
         await User.findOneAndUpdate(
-                {username: res.locals.user}, 
+                //{username: res.locals.user}, 
                 {CurrentTasks: number}).exec();
             
     }
@@ -30,6 +30,6 @@ async function findCurrentTaskNumber(username) {
 
 
 module.exports = {
-    findCurrentTaskNumber,
-    findCompletedTaskNumber,
-    findDiaryNumber };
+    findCurrentTaskNumber,};
+    //findCompletedTaskNumber,
+    //findDiaryNumber };
