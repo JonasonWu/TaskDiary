@@ -166,6 +166,6 @@ An Example Diary:
 
 7. [mocha tests](https://mochajs.org) - ([testFunctions.js](/test/testFunctions.js), [testRoutes.js](/test/testRoutes.js))
 
-8. [increasing mocha timeout](https://stackoverflow.com/questions/15971167/how-to-increase-timeout-for-a-single-test-case-in-mocha) - ([testRoutes.js][/test/testFunctions.js])
+8. [increasing mocha timeout](https://stackoverflow.com/questions/15971167/how-to-increase-timeout-for-a-single-test-case-in-mocha) - ([testRoutes.js](/test/testFunctions.js]))
 <!-- 2. [tutorial on vue.js](https://vuejs.org/v2/guide/) - (add link to source code that was based on this) -->
 
