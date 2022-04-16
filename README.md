@@ -156,10 +156,16 @@ An Example Diary:
 
 2. [selenium intro](https://www.lambdatest.com/blog/automation-testing-with-selenium-javascript/) - [RouteTesting.js](/test/RouteTesting.js)
 
-3. [more selenium](https://guru99.com/locate-by-link-text-partial-link-text.html) - [RouteTesting.js](/test/RouteTesting.js)
+3. [more selenium](https://guru99.com/locate-by-link-text-partial-link-text.html) - ([RouteTesting.js](/test/RouteTesting.js))
 
-3. [mocha tests](https://mochajs.org) - ([testFunctions.js](/test/testFunctions.js), [testRoutes.js](/test/testRoutes.js)
+4. [helpful selenium (existence of css)](https://devqa.io/selenium-css-selectors/) - ([RouteTesting.js](/test/RouteTesting.js))
 
+5. [documentation on selenium](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_By.html) - ([RouteTesting.js](/test/RouteTesting.js))
 
+6. [more documentation on selenium](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/By.html) - ([RouteTesting.js](/test/RouteTesting.js))
+
+7. [mocha tests](https://mochajs.org) - ([testFunctions.js](/test/testFunctions.js), [testRoutes.js](/test/testRoutes.js))
+
+8. [increasing mocha timeout](https://stackoverflow.com/questions/15971167/how-to-increase-timeout-for-a-single-test-case-in-mocha) - ([testRoutes.js][/test/testFunctions.js])
 <!-- 2. [tutorial on vue.js](https://vuejs.org/v2/guide/) - (add link to source code that was based on this) -->
 
