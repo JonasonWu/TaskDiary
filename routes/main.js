@@ -7,9 +7,10 @@ const current = require('./main-current.js');
 router.use('/current', current);
 
 router.get('/', (req, res) => {
+    res.render('main');
+    
     //This is incorrect redirect, but for the purpose of completing milestone 2, leave it.
-    res.redirect('/main/current');
-
+    //res.redirect('/main/current');
 });
 
 module.exports = router;

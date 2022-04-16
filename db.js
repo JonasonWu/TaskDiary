@@ -1,20 +1,21 @@
-// const mongoose = require('mongoose'),
-// 	URLSlugs = require('mongoose-url-slugs'),
-//   	passportLocalMongoose = require('passport-local-mongoose');
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'),
+	//URLSlugs = require('mongoose-url-slugs'),
+	passportLocalMongoose = require('passport-local-mongoose');
 
 const User = new mongoose.Schema({
 	username: {type: String, required: true, minlength: 3},
-    password: {type: String, required: true}, //We will store the hash+salt together
-	CurrentTasks: [Number],
-	CurrentTasksGroupNames: [String],
-	CompletedTasks: [Number],
-	Diary: [Number]
+    //password: {type: String, required: true}, //We will store the hash+salt together
+	salt: String,
+	hash: String,
+	//CurrentTasks: Number, //Reference number to the current tasks
+	//CurrentTasksGroupNames: [String],
+	//CompletedTasks: Number, //Reference number to the completed tasks
+	//Diary: Number //Refernce number to the diary
 	// lists:  [{ type: mongoose.Schema.Types.ObjectId, ref: 'List' }]
 });
 
 const CurrentTask = new mongoose.Schema({
-	user: Number, // a reference to a User object
+	user: Object, // a reference to a User object
 	createdAt: String, //Time of creation of this object
 	title: String, //The subject or focus of the task
 	taskDetails: [String], //an array that stores details of the task (via bullet points).
@@ -24,7 +25,7 @@ const CurrentTask = new mongoose.Schema({
 
 
 const CompletedTask = new mongoose.Schema({
-	user: Number, // a reference to a User object
+	user: Object, // a reference to a User object
 	createdAt: String, //Time of creation of this object
 	title: String, //The subject or focus of the task
 	taskDetails: [String], //an array that stores details of the task (via bullet points).
@@ -33,7 +34,7 @@ const CompletedTask = new mongoose.Schema({
 });
 
 const Diary = new mongoose.Schema({
-	user: Number, // a reference to a User object.
+	user: Object, // a reference to a User object.
 	createdAt: String, //Time of creation of this object. 
 	date: String, //The date the diary is for.
 	title: String, //The subject or focus of the diary. (data + title will be the title of the diary page shown to the user)
@@ -58,8 +59,8 @@ const Diary = new mongoose.Schema({
 // });
 
 
-// User.plugin(passportLocalMongoose);
-// List.plugin(URLSlugs('name'));
+User.plugin(passportLocalMongoose);
+//List.plugin(URLSlugs('name'));
 
 mongoose.model('User', User);
 mongoose.model('CurrentTask', CurrentTask);

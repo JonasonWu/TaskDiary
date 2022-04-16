@@ -2,12 +2,22 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const CurrentTasks = mongoose.model('CurrentTask');
+const CompletedTasks = mongoose.model('CompletedTask');
 
 //This is for "/main/current"
 router.get('/', async (req, res) => {
-    //May input {user: number} later on to get specific tasks relating to the user
-    CurrentTasks.find({}, function(err, data, count) {
+    // console.log('Trying to do this;');
+    // console.log(res.locals.user);
+    //console.log(res.locals.user.username);
+    // const name = res.locals.user;
+    // console.log("The name", name);
+    // console.log(typeof name);
+    // console.log("ENDED");
+    
+    //Get the collection of current tasks belonging to the user.
+    CurrentTasks.find({user: res.locals.user}, function(err, data, count) {
         if (err) {
+            //res.redirect('/login');
             console.error('ERROR:', err);
             res.status(500).send("Internal Server Error");
         }
@@ -27,7 +37,7 @@ router.get('/', async (req, res) => {
     });
 });
 
-//This is for '/main/current/newTask'
+//This is the post for '/main/current/newTask'
 router.post('/newTask', async (req, res) => {
     let details = [req.body.detail1, req.body.detail2, req.body.detail3,
     req.body.detail4, req.body.detail5];
@@ -36,9 +46,9 @@ router.post('/newTask', async (req, res) => {
     if (req.body.title === "") {
         req.body.title = "Task";
     }
+  
     const newTask = new CurrentTasks({
-        //TODO: fix user declaration after allowing user login stuff
-        user: 0, //Initialize all to 0, since user is not created yet.
+        user: res.locals.user, //Set user to the id of the user object.
         createdAt: new Date().toLocaleString(),
         title: req.body.title,
         taskDetails: details,
@@ -50,18 +60,24 @@ router.post('/newTask', async (req, res) => {
     res.redirect('/main/current');
 });
 
-router.post('/deleteALL', async (req, res) => {
-    //TODO: May want to move this to the completedTasks section
-    //Alternative: Delete all tasks means to move all tasks into the completedTask section
+router.post('/moveAll', async (req, res) => {
+    //Move all tasks to the completed tasks section
     if (req.body.delete === "true") {
-        await CurrentTasks.deleteMany({}).then(function() {
-            console.log("Data Deleted");
-        }).catch(function(error) {
-            console.error(error);
-        });
+        const data = await CurrentTasks.find({user: res.locals.user}).exec();
+        for (const obj of data) {
+            await (new CompletedTasks({
+                user: obj.user,
+                createdAt: obj.createdAt,
+                title: obj.title,
+                taskDetails: obj.taskDetails,
+                estimatedCompletionTime: obj.estimatedCompletionTime,
+                completedAt: new Date().toLocaleString(),
+            })).save();
+        }
+        await CurrentTasks.deleteMany({user: res.locals.user}).exec();
+        console.log(data);
     }
     res.redirect('/main/current');
-    
 });
 
 module.exports = router;

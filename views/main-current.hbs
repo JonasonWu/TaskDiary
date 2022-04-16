@@ -1,4 +1,6 @@
-
+{{!-- {{#if user}}
+<a href="/login">Login</a> or <a href="/register">Register</a>
+{{else}} --}}
 <h1>Current Tasks</h1>
 
 {{#if noData}}
@@ -46,12 +48,12 @@ Make a selection option for choosing group # to add to.
 </form>
 
 
-<form method="POST" action="/main/current/deleteALL">
-This form would likely not exist in the final version (it might exist in the completedTasks section of the project)
+<form method="POST" action="/main/current/moveALL">
+Move all tasks to be completed.
 <input type="hidden" name="delete" value="true">
-<input type="submit" value="DELETE ALL TASKS">
-
+<input type="submit" value="All tasks completed">
 
 
 </form>
-
+{{!-- 
+{{/if}} --}}

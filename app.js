@@ -1,8 +1,14 @@
 require('./db');
+require('./auth');
 
 const express = require('express');
 const path = require('path');
+const passport = require('passport');
+//const mongoose = require('mongoose');
+//const User = mongoose.model('User');
 
+//Get the routes for login/authentication stuff
+const routes = require('./routes/index');
 //Get the components that follow '/main'
 const main = require('./routes/main');
 
@@ -25,23 +31,34 @@ const sessionOptions = {
 };
 app.use(session(sessionOptions));
 
+app.use(passport.initialize());
+app.use(passport.session());
+
 //Allow post requests
 app.use(express.urlencoded({ extended: false }));
 
 //Allow automatic searching of files/folders inside the public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(async (req, res, next) => {
+    res.locals.user = req.user;
+    //Get identifying reference number of current tasks
+    // const userData = await User.find({username: res.locals.user}).exec();
+    // res.locals.id = userData._id;
+    // //Get identifying number for current tasks
+    // res.locals.curTaskNum = userData.CurrentTasks;
+    // //Get identifying number for completed tasks
+    // res.locals.comTaskNum = userData.CurrentTasks;
+    // //Get identifying number for diary number
+    // res.locals.diaryNum = userData.Diary;
+    next(); 
+});
+
+//Include the login pages.
+app.use('/', routes);
 //Get the pages that connects to '/main'
 app.use('/main', main);
 
-//This is default. Just to test whether stuff works
-app.get('/', (req, res) => {
-    //This is temporary. The correct redirect should be the login page.
-    res.redirect('/main');
-
-    //TODO: This should be the correct redirect
-    //res.redirect('/login');
-});
 
 //Change it so that we either have a environment port value, or just use the default.
 app.listen(process.env.PORT || 3000);
