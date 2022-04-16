@@ -1,1 +1,0 @@
-This folder contains files for testing my web application.

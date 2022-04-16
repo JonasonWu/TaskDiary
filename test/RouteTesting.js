@@ -13,7 +13,7 @@ async function example() {
 
     //To fetch http://google.com from the browser with our code.
     await driver.get("http://google.com");
-        
+
     //To send a search query by passing the value in searchString.
     await driver.findElement(By.name("q")).sendKeys(searchString,Key.RETURN);
 
@@ -25,7 +25,35 @@ async function example() {
     await driver.quit();
 
 }
-example();
+//example();
+
+//This function attempts to test the functionality of the login
+async function Login(username, password) {
+    const addTitle = "Go to the park";
+    const addDetail = "Eat food";
+    const addDetail2 = "Play with dog";
+
+    //To wait for browser to build and launch properly
+    const driver = await new Builder().forBrowser("chrome").build();
+    //Go to this site
+    await driver.get('http://localhost:3000/login');
+
+    await driver.findElement(By.name("username")).sendKeys(username);
+    await driver.findElement(By.name("password")).sendKeys(password, Key.RETURN);
+
+    //Verify entry
+
+
+    await driver.quit();
+
+
+}
+Login("jw5911", "jw5911");
+
+//This function attempts to test the functionallity of the task addition form
+function addTask() {
+
+}
 
 
 

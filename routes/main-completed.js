@@ -5,6 +5,11 @@ const mongoose = require('mongoose');
 //const CurrentTasks = mongoose.model('CurrentTask');
 const CompletedTasks = mongoose.model('CompletedTask');
 
+router.use((req, res, next) => {
+    res.locals.title = "Completed Tasks";
+    next();
+});
+
 ///main/completed
 router.get('/', (req, res) => {
     CompletedTasks.find({userid: res.locals.user}, function(err, data, count) {

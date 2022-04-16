@@ -5,6 +5,11 @@ const User = mongoose.model('User');
 const CurrentTasks = mongoose.model('CurrentTask');
 const CompletedTasks = mongoose.model('CompletedTask');
 
+router.use((req, res, next) => {
+    res.locals.title = "Current Tasks";
+    next();
+});
+
 //This is for "/main/current"
 router.get('/', async (req, res) => {
     // console.log('Trying to do this;');

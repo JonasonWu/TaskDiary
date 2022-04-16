@@ -5,6 +5,17 @@ const express = require('express'),
     User = mongoose.model('User');
 //const argon = require('argon2');
 
+router.use((req, res, next) => {
+  const url = req.url;
+  if (url === "/") {
+    res.locals.title = "Home";
+  }
+  else {
+    res.locals.title = url.charAt(1).toUpperCase() + url.substring(2);
+  }
+  next();
+});
+
 router.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/');

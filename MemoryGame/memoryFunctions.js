@@ -12,8 +12,26 @@ function generateNumbers(start, end, count) {
     return array;
 }
 
+//This is a more complicated algorithm of generating numbers
+//  May be harder to guess than the other original one.
+function generateUpDown(start, end, count) {
 
+}
 
+//This is a more complicated algorithm of generating numbers
+//  May be harder to guess than the other original one.
+function generateAscending(start, end, count) {
+
+}
+
+//This is a more complicated algorithm of generating numbers
+//  May be harder to guess than the other original one.
+function generateDescending(start, end, count) {
+
+}
 module.exports = {
     generateNumbers,
+    generateUpDown,
+    generateAscending,
+    generateDescending,
 };

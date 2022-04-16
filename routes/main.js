@@ -10,6 +10,11 @@ router.use('/current', current);
 router.use('/completed', complete);
 router.use('/diary', diary);
 
+router.use((req, res, next) => {
+    res.locals.title = "Main";
+    next();
+});
+
 router.get('/', (req, res) => {
     res.render('main');
     

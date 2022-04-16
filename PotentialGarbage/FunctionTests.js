@@ -8,5 +8,6 @@ const c = require(modulePath);
 console.log(modulePath);
 
 
-//Potential functions that I will create
-//1. Test whether user already exists (for new user that is trying to register)
+
+
+
