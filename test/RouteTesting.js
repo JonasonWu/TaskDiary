@@ -64,9 +64,10 @@ async function makeAccount(username, password) {
     //If it is still Register, then the account has not been created.
     //If it is Login, then account should be successfully created.
     //console.log("Title of the page is: ", title);
-    driver.quit();
+    await driver.quit();
     return title;
 }
+
 
 //This function attempts to test the functionality of the login
 async function Login(username, password) {
@@ -75,7 +76,7 @@ async function Login(username, password) {
     
     await driver.get('http://localhost:3000');
     //Click on the register link
-    await driver.findElement(By.linkText("Register")).click();
+    await driver.findElement(By.linkText("Login")).click();
 
     //Input the username and password
     await driver.findElement(By.name("username")).sendKeys(username);
@@ -100,18 +101,19 @@ async function addTask(username, password) {
     await driver.findElement(By.name("password")).sendKeys(password, Key.RETURN);
 
     await driver.findElement(By.linkText("Current Tasks")).click();
-
+    
     const inputs = await driver.findElements(By.css("form[action='/main/current/newTask'] > input"));
+    console.log(inputs);
     const addTitle = "Go to the park";
     const addDetail = "Eat food";
     const addDetail2 = "Play with dog";
     
-    inputs[0].sendKeys(addTitle);
-    inputs[1].sendKeys(addDetail);
-    inputs[2].sendKeys(addDetail2);
-    inputs[inputs.length-1].sendKeys(Key.RETURN);
+    await inputs[0].sendKeys(addTitle);
+    await inputs[1].sendKeys(addDetail);
+    await inputs[2].sendKeys(addDetail2);
+    await inputs[inputs.length-1].sendKeys(Key.RETURN);
     const title = await driver.getTitle();
-    driver.quit();
+    await driver.quit();
     return title;
 }
 
