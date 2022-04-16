@@ -107,6 +107,8 @@ An Example Diary:
 
 ![diary entries](documentation/main-diary.jpg)
 
+/main/memoryGame - a page that consists of a game to play
+
 ## Site map
 
 ![Site map](documentation/sitemap.jpg)
