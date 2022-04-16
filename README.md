@@ -141,6 +141,7 @@ An Example Diary:
 * (x points) Perform automatic authentication (or provide option) if the user is signed into google.
     * Other websites have ways to login through another site.
     * There would be a way to sign in through /login window, or the user can choose to sign in through google account.
+    * This will likely not be done, since there is not enough time.
 
 8+x points total out of 8 required points
 
@@ -149,8 +150,14 @@ An Example Diary:
 
 ## Annotations / References Used
 
-1. [selenium intro](https://www.lambdatest.com/blog/automation-testing-with-selenium-javascript/) - [RouteTesting.js](/tests/RouteTesting.js)
+1. [passport.js authentication docs](http://passportjs.org/docs) - ([db.js](db.js), [index.js](/routes/index.js))
 
-<!-- 1. [passport.js authentication docs](http://passportjs.org/docs) - ([db.js](db.js), [index.js](/routes/index.js)) -->
+2. [selenium intro](https://www.lambdatest.com/blog/automation-testing-with-selenium-javascript/) - [RouteTesting.js](/test/RouteTesting.js)
+
+3. [more selenium](https://guru99.com/locate-by-link-text-partial-link-text.html) - [RouteTesting.js](/test/RouteTesting.js)
+
+3. [mocha tests](https://mochajs.org) - ([testFunctions.js](/test/testFunctions.js), [testRoutes.js](/test/testRoutes.js)
+
+
 <!-- 2. [tutorial on vue.js](https://vuejs.org/v2/guide/) - (add link to source code that was based on this) -->
 
