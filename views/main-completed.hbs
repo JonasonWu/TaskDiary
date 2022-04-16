@@ -1,0 +1,32 @@
+
+
+<h2>Completed Tasks</h1>
+
+{{#if noData}}
+    No Completed Tasks!
+{{/if}}
+
+
+{{!-- <form method="POST" action="/main/current/update"> --}}
+{{!-- <input type="submit" value="Update Completed Tasks"> --}}
+<ol> 
+{{#each data as |d|}}
+    {{!-- <input type="checkbox" name={{d.user}}> --}}
+        <li>
+            {{d.title}} 
+            <ul>
+                {{#each d.taskDetails as |td|}}
+                <li>
+                    {{td}}
+                </li>
+                {{/each}}
+            </ul>
+        </li>
+{{/each}}
+</ol>
+
+<form method="POST" action="">
+    Do you want to remove all tasks?
+    <input type="hidden" name="delete" value="true">
+    <input type="submit" value="DELETE ALL TASKS">
+</form>

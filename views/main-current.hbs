@@ -1,7 +1,7 @@
 {{!-- {{#if user}}
 <a href="/login">Login</a> or <a href="/register">Register</a>
 {{else}} --}}
-<h1>Current Tasks</h1>
+<h2>Today's Tasks</h2>
 
 {{#if noData}}
     No Current Tasks! Good job!
@@ -10,23 +10,29 @@
 
 {{!-- <form method="POST" action="/main/current/update"> --}}
 {{!-- <input type="submit" value="Update Completed Tasks"> --}}
-<ul> <!--As potential improvement, add contentedible="true" into the mix-->
+<ol> <!--As potential improvement, add contentedible="true" into the mix-->
 {{#each data as |d|}}
-{{!-- <input type="checkbox" name={{d.user}}> --}}
+    {{!-- <input type="checkbox" name={{d.user}}> --}}
         <li>
             {{d.title}} 
-            <ol>
+            <ul>
                 {{#each d.taskDetails as |td|}}
                 <li>
                     {{td}}
                 </li>
                 {{/each}}
-            </ol>
+            </ul>
         </li>
 {{/each}}
-</ul>
+</ol>
 
 {{!-- </form> --}}
+
+{{!-- <form method="POST" action="/main/current/moveOne">
+Which task is completed? <input type="number" name="num" min="1">
+<!-- <input type="hidden" name="data" value='{{data}}'> -->
+<input type="submit">
+</form> --}}
 
 <!-- This form adds a new task -->
 <form method="POST" action="/main/current/newTask">
@@ -38,13 +44,10 @@
 <input placeholder="Detail 4" type="text" name="detail4">
 <input placeholder="Detail 5" type="text" name="detail5">
 {{!-- <input placeholder="Completion Time" type="Number" name="time"> --}}
-
 <!--
 Make a selection option for choosing group # to add to.
 -->
-
 <input type="submit" value="Create">
-
 </form>
 
 
@@ -52,7 +55,6 @@ Make a selection option for choosing group # to add to.
 Move all tasks to be completed.
 <input type="hidden" name="delete" value="true">
 <input type="submit" value="All tasks completed">
-
 
 </form>
 {{!-- 

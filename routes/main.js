@@ -4,7 +4,11 @@ const router = express.Router();
 // const CurrentTasks = mongoose.model('CurrentTask');
 
 const current = require('./main-current.js');
+const complete = require('./main-completed.js');
+const diary = require('./main-diary.js');
 router.use('/current', current);
+router.use('/completed', complete);
+router.use('/diary', diary);
 
 router.get('/', (req, res) => {
     res.render('main');

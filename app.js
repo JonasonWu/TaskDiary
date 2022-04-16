@@ -42,6 +42,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(async (req, res, next) => {
     res.locals.user = req.user;
+    console.log(res.locals.user);
+    //console.log(res.locals.user.username);
     //Get identifying reference number of current tasks
     // const userData = await User.find({username: res.locals.user}).exec();
     // res.locals.id = userData._id;

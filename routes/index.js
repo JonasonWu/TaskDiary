@@ -24,8 +24,13 @@ router.get('/register', (req, res) => {
 
 router.post('/register', async (req, res) => {
   const {username, password} = req.body;
-
-  User.register(new User({username}), password, (err) => {//(err, user) => {
+  const newUser = new User({
+    username, 
+    CurrentTasks: [],
+    CompletedTasks: [],
+    Diary: []
+  });
+  User.register(newUser, password, (err) => {//(err, user) => {
     if (err) {
       res.render('register', {message: 'Username already taken or invalid password.'});
     } else {

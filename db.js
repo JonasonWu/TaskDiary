@@ -7,15 +7,16 @@ const User = new mongoose.Schema({
     //password: {type: String, required: true}, //We will store the hash+salt together
 	salt: String,
 	hash: String,
-	//CurrentTasks: Number, //Reference number to the current tasks
+	CurrentTasks: [Number], //Reference number to the current tasks
 	//CurrentTasksGroupNames: [String],
-	//CompletedTasks: Number, //Reference number to the completed tasks
-	//Diary: Number //Refernce number to the diary
+	CompletedTasks: [Number], //Reference number to the completed tasks
+	Diary: [Number] //Refernce number to the diary
 	// lists:  [{ type: mongoose.Schema.Types.ObjectId, ref: 'List' }]
 });
 
 const CurrentTask = new mongoose.Schema({
-	user: Object, // a reference to a User object
+	userid: Object,
+	user: Number, // a reference to a User object
 	createdAt: String, //Time of creation of this object
 	title: String, //The subject or focus of the task
 	taskDetails: [String], //an array that stores details of the task (via bullet points).
@@ -25,7 +26,8 @@ const CurrentTask = new mongoose.Schema({
 
 
 const CompletedTask = new mongoose.Schema({
-	user: Object, // a reference to a User object
+	userid: Object,
+	user: Number, // a reference to a User object
 	createdAt: String, //Time of creation of this object
 	title: String, //The subject or focus of the task
 	taskDetails: [String], //an array that stores details of the task (via bullet points).
@@ -34,7 +36,8 @@ const CompletedTask = new mongoose.Schema({
 });
 
 const Diary = new mongoose.Schema({
-	user: Object, // a reference to a User object.
+	userid: Object,
+	user: Number, // a reference to a User object.
 	createdAt: String, //Time of creation of this object. 
 	date: String, //The date the diary is for.
 	title: String, //The subject or focus of the diary. (data + title will be the title of the diary page shown to the user)
