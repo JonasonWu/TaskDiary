@@ -133,14 +133,14 @@ An Example Diary:
 4. as a registered user, I add a new task to the current tasks page.
 5. as a registered user, I can move all of the current tasks to the completed section.
 6. as a registered user, I can see all my completed tasks.
-7. as a user, I can play the memory game if I have the link.
+7. as a registered user, I can log out.
+8. as a user, I can play the memory game if I have the link.
+
 <!-- 5. as a user, I can check off the task and details of the task to indicate completion. -->
 <!-- 6. as a registered user, I can edit the tasks that was already created. -->
 <!-- 7. as a registered user, I can create groups for the current tasks page to sort the tasks. -->
 <!-- 8. as a registered user, I can search specific diary entries that I previously wrote. -->
 <!-- 9. as a registered user, I can create a new diary entry. -->
-
-
 <!--
 11. as a user, I can delete completed tasks.
 12. as a user, I can log out.
@@ -152,9 +152,12 @@ An Example Diary:
     * This is a library that is used for testing the functions in JavaScript.
     * It is useful for making sure that the functions for the website is written correctly.
     * I'm going to try writing my own mocha code for testing my functions.
+    * Files that use mocha: [testFunctions.js](./test/testRoutes.js), [testRoutes.js](./test/testFunctions.js)
 * (5 points) Functional testing for all of my routes - Selenium
     * This is a library that is used for testing the web browser to make sure that user interactions work. It automates the user interaction, so tests can be written for it. 
     * This should solve the problem of having to test whether the web application works after every single change.
+    * Files that use selenium: [RouteTesting.js](./test/RouteTesting.js), [testRoutes.js](./test/testFunctions.js)
+* Results of the tests: [results](./test/testResults/TestResults.png)
 <!-- * (x points) Perform automatic authentication (or provide option) if the user is signed into google.
     * Other websites have ways to login through another site.
     * There would be a way to sign in through /login window, or the user can choose to sign in through google account.
@@ -166,20 +169,20 @@ An Example Diary:
 
 ## Annotations / References Used
 
-1. [passport.js authentication docs](http://passportjs.org/docs) - ([db.js](db.js), [index.js](/routes/index.js))
+1. [passport.js authentication docs](http://passportjs.org/docs) - ([db.js](db.js), [index.js](./routes/index.js))
 
-2. [selenium intro](https://www.lambdatest.com/blog/automation-testing-with-selenium-javascript/) - [RouteTesting.js](/test/RouteTesting.js)
+2. [selenium intro](https://www.lambdatest.com/blog/automation-testing-with-selenium-javascript/) - [RouteTesting.js](./test/RouteTesting.js)
 
-3. [more selenium](https://guru99.com/locate-by-link-text-partial-link-text.html) - ([RouteTesting.js](/test/RouteTesting.js))
+3. [more selenium](https://guru99.com/locate-by-link-text-partial-link-text.html) - ([RouteTesting.js](./test/RouteTesting.js))
 
-4. [helpful selenium (existence of css)](https://devqa.io/selenium-css-selectors/) - ([RouteTesting.js](/test/RouteTesting.js))
+4. [helpful selenium (existence of css)](https://devqa.io/selenium-css-selectors/) - ([RouteTesting.js](./test/RouteTesting.js))
 
-5. [documentation on selenium](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_By.html) - ([RouteTesting.js](/test/RouteTesting.js))
+5. [documentation on selenium](https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_By.html) - ([RouteTesting.js](./test/RouteTesting.js))
 
-6. [more documentation on selenium](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/By.html) - ([RouteTesting.js](/test/RouteTesting.js))
+6. [more documentation on selenium](https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/By.html) - ([RouteTesting.js](./test/RouteTesting.js))
 
-7. [mocha tests](https://mochajs.org) - ([testFunctions.js](/test/testFunctions.js), [testRoutes.js](/test/testRoutes.js))
+7. [mocha tests](https://mochajs.org) - ([testFunctions.js](./test/testFunctions.js), [testRoutes.js](./test/testRoutes.js))
 
-8. [increasing mocha timeout](https://stackoverflow.com/questions/15971167/how-to-increase-timeout-for-a-single-test-case-in-mocha) - ([testRoutes.js](/test/testFunctions.js))
+8. [increasing mocha timeout](https://stackoverflow.com/questions/15971167/how-to-increase-timeout-for-a-single-test-case-in-mocha) - ([testRoutes.js](./test/testFunctions.js))
 <!-- 2. [tutorial on vue.js](https://vuejs.org/v2/guide/) - (add link to source code that was based on this) -->
 
