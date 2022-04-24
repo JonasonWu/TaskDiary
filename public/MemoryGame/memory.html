@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed" rel="stylesheet">
+		<link rel="stylesheet" href="../stylesheets/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    </head>
+    <body id="memory_body">
+        <h1 id="memory_h1">Welcome to the memory game!</h1>
+        <h2 id="memory_h2">Select difficulty level and difficulty type</h2>
+        <form id="form_memory" class="inline" method="POST" action="">
+            <p id="form_error" class="hide red">Invalid input. Difficulty level should be from 1 to 30. </p>
+            Difficulty level: <input name="level" value="" type="number" min="1" max="30" required>
+            Difficulty type: <select name="type">
+                <option value="random" selected>Random</option>
+                <option value="updown">Up and Down</option>
+                <option value="ascending">Ascending</option>
+                <option value="descending">Descending</option>
+            </select>
+            <input type="submit">
+        </form>
+
+        <div id="memory_game"></div>
+
+        <div id="restart">
+            <input class="hide" type="submit" value="Restart">
+        </div>
+        
+        <script src="./game.js"></script>
+
+    </body>
+</html>

@@ -1,10 +1,10 @@
 const path = require('path');
 const chai = require('chai');
 const expect = chai.expect; 
-const modulePath = path.join(__dirname, '../MemoryGame/memoryFunctions.js');
+const modulePath = path.join(__dirname, '../public/MemoryGame/game.js');
 const funcs = require(modulePath);
 
-describe('memoryFunctions', function() {
+describe.only('memoryFunctions', function() {
     describe('generateNumbers', function() {
         it('should return an array of random integers within the range indicated', function() {
             const arr = funcs.generateNumbers(40, 100, 50);
@@ -77,7 +77,7 @@ describe('memoryFunctions', function() {
         });
         it('should consistently generate smaller or equal numbers', function() {
             const arr = funcs.generateDescending(0, 100, 50);
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 49; i++) {
                 chai.assert.isAtLeast(arr[i], arr[i+1]);
             }
         });

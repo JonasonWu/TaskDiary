@@ -15,6 +15,7 @@ function generateNumbers(start, end, count) {
 //This is a more complicated algorithm of generating numbers
 //  May be harder to guess than the other original one.
 function generateUpDown(start, end, count) {
+    
 
 }
 

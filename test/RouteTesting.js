@@ -103,7 +103,7 @@ async function addTask(username, password) {
     await driver.findElement(By.linkText("Current Tasks")).click();
     
     const inputs = await driver.findElements(By.css("form[action='/main/current/newTask'] > input"));
-    console.log(inputs);
+    //console.log(inputs);
     const addTitle = "Go to the park";
     const addDetail = "Eat food";
     const addDetail2 = "Play with dog";
@@ -115,6 +115,54 @@ async function addTask(username, password) {
     const title = await driver.getTitle();
     await driver.quit();
     return title;
+}
+
+//This function attempts to test the functionality of the task addition form
+async function removeCurrentTasks(username, password) {
+    //To wait for browser to build and launch properly
+    const driver = await new Builder().forBrowser("chrome").build();
+    await driver.get('http://localhost:3000');
+    //Click on the register link
+    await driver.findElement(By.linkText("Login")).click();
+
+    //This should be valid
+    await driver.findElement(By.name("username")).sendKeys(username);
+    await driver.findElement(By.name("password")).sendKeys(password, Key.RETURN);
+
+    await driver.findElement(By.linkText("Current Tasks")).click();
+    
+    const input = await driver.findElement(By.css('form[action="/main/current/moveALL"] > input[type="submit"]'));
+    await input.sendKeys(Key.RETURN);
+    const title = await driver.getTitle();
+    await driver.quit();
+    return title;
+}
+
+//This function attempts to test the functionality of the task addition form
+async function checkEmpty(username, password) {
+    //To wait for browser to build and launch properly
+    const driver = await new Builder().forBrowser("chrome").build();
+    await driver.get('http://localhost:3000');
+    //Click on the register link
+    await driver.findElement(By.linkText("Login")).click();
+
+    //This should be valid
+    await driver.findElement(By.name("username")).sendKeys(username);
+    await driver.findElement(By.name("password")).sendKeys(password, Key.RETURN);
+
+    await driver.findElement(By.linkText("Current Tasks")).click();
+    
+    const param = await driver.findElements(By.css("ol > li"));
+
+    await driver.quit();
+
+    //If param doesn't exist, then the list is empty, which means that no data exists.
+    if (param.length === 0) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 
@@ -160,5 +208,7 @@ https://www.lambdatest.com/blog/automation-testing-with-selenium-javascript/
 module.exports = {
     makeAccount,
     Login,
-    addTask
+    addTask,
+    removeCurrentTasks,
+    checkEmpty
 };

@@ -34,7 +34,7 @@ describe.only("RouteTesting", function() {
     describe.only("removeTask", function() {
         it("Should remove all tasks, so the task list is empty", async function() {
             await funcs.removeCurrentTasks(username, password);
-            const empty = await funcs.checkEmpty();
+            const empty = await funcs.checkEmpty(username, password);
             expect(empty).to.equal(true);
         }).timeout(20000);
     });
