@@ -1,6 +1,4 @@
 {{#if user}}
-<a href="/login">Login</a> or <a href="/register">Register</a>
-{{else}}
 <h2>Today's Tasks</h2>
 
 {{#if noData}}
@@ -47,4 +45,8 @@ Which task is completed? <input type="number" name="num" min="1">
     <input type="hidden" name="delete" value="true">
     <input type="submit" value="All tasks completed">
 </form>
+
+
+{{else}}
+    <a href="/login">Login</a> or <a href="/register">Register</a>
 {{/if}}

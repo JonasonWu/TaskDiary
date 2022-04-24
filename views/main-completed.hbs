@@ -1,6 +1,4 @@
 {{#if user}}
-<a href="/login">Login</a> or <a href="/register">Register</a>
-{{else}}
 
 <h2>Completed Tasks</h1>
 
@@ -28,4 +26,7 @@
     <input type="hidden" name="delete" value="true">
     <input type="submit" value="DELETE ALL TASKS">
 </form>
+
+{{else}}
+    <a href="/login">Login</a> or <a href="/register">Register</a>
 {{/if}}
