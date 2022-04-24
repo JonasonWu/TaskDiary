@@ -33,32 +33,7 @@ form {
 	padding:2em;
   	background-color:#eee;
 }
-/*
-#grocery-list {
-	background-color:#ddd;
-	padding: 1em;
-}
 
-#grocery-list li {
-	list-style-type: none;
-	padding-top:0.25em;
-	padding-bottom:0.25em;
-}
-
-#grocery-list li.checked {
-	text-decoration: line-through;
-	padding: 0.25em 0.25em 0.25em 1.5em;
-}
-
-
-.qty {
-	width: 3em;
-}
-
-input[type='checkbox'] {
-	margin-right: 1em;
-}
-*/
 input[type=submit] {
 	padding:5px 15px; 
 	background:#ccc; 
@@ -103,4 +78,11 @@ input[type=submit]:hover {
 }
 .backgroundRed {
 	background-color: red;
+}
+
+
+footer {
+	position: fixed;
+	bottom: 5px;
+	left: 5px;
 }

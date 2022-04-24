@@ -9,8 +9,8 @@ const funcs = require(modulePath);
 const username = "sdfghbnmfgiwrohkljdnkjreop orepoevlfd";
 const password = "dfghjiuiekjllvb roi ,  ff";
 
-describe.only("RouteTesting", function() {
-    describe.only("makeAccount", function() {
+describe("RouteTesting", function() {
+    describe("makeAccount", function() {
         it('Does not allow registration for usernames of less than 3 characters.', async function() {
             const title1 = await funcs.makeAccount("j", "dklfj");
             const title2 = await funcs.makeAccount('fd', "dfsd");
@@ -18,20 +18,20 @@ describe.only("RouteTesting", function() {
             expect(title2).to.equal("Register");
         }).timeout(20000);
     });
-    describe.only("Login", function() {
+    describe("Login", function() {
         it("Successfully logs in on valid account creation", async function() {
             await funcs.makeAccount(username, password);
             const title = await funcs.Login(username, password);
             expect(title).to.equal("Main");
         }).timeout(20000);
     });
-    describe.only("addTask", function() {
+    describe("addTask", function() {
         it("Should end up at the same page after adding a task", async function() {
             const title = await funcs.addTask(username, password);
             expect(title).to.equal("Current Tasks");
         }).timeout(20000);
     });
-    describe.only("removeTask", function() {
+    describe("removeTask", function() {
         it("Should remove all tasks, so the task list is empty", async function() {
             await funcs.removeCurrentTasks(username, password);
             const empty = await funcs.checkEmpty(username, password);

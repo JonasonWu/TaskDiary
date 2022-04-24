@@ -1,16 +1,13 @@
-{{!-- {{#if user}}
+{{#if user}}
 <a href="/login">Login</a> or <a href="/register">Register</a>
-{{else}} --}}
+{{else}}
 <h2>Today's Tasks</h2>
 
 {{#if noData}}
     No Current Tasks! Good job!
 {{/if}}
 
-
-{{!-- <form method="POST" action="/main/current/update"> --}}
-{{!-- <input type="submit" value="Update Completed Tasks"> --}}
-<ol> <!--As potential improvement, add contentedible="true" into the mix-->
+<ol>
 {{#each data as |d|}}
     {{!-- <input type="checkbox" name={{d.user}}> --}}
         <li>
@@ -25,8 +22,6 @@
         </li>
 {{/each}}
 </ol>
-
-{{!-- </form> --}}
 
 {{!-- <form method="POST" action="/main/current/moveOne">
 Which task is completed? <input type="number" name="num" min="1">
@@ -43,19 +38,13 @@ Which task is completed? <input type="number" name="num" min="1">
 <input placeholder="Detail 3" type="text" name="detail3">
 <input placeholder="Detail 4" type="text" name="detail4">
 <input placeholder="Detail 5" type="text" name="detail5">
-{{!-- <input placeholder="Completion Time" type="Number" name="time"> --}}
-<!--
-Make a selection option for choosing group # to add to.
--->
 <input type="submit" value="Create">
 </form>
 
-
+<!--This form moves all tasks to the completed tasks section-->
 <form method="POST" action="/main/current/moveALL">
-Move all tasks to be completed.
-<input type="hidden" name="delete" value="true">
-<input type="submit" value="All tasks completed">
-
+    Move all tasks to be completed.
+    <input type="hidden" name="delete" value="true">
+    <input type="submit" value="All tasks completed">
 </form>
-{{!-- 
-{{/if}} --}}
+{{/if}}

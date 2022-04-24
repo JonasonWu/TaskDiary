@@ -11,7 +11,6 @@ const User = new mongoose.Schema({
 	//CurrentTasksGroupNames: [String],
 	CompletedTasks: [Number], //Reference number to the completed tasks
 	Diary: [Number] //Refernce number to the diary
-	// lists:  [{ type: mongoose.Schema.Types.ObjectId, ref: 'List' }]
 });
 
 const CurrentTask = new mongoose.Schema({
@@ -23,7 +22,6 @@ const CurrentTask = new mongoose.Schema({
 	estimatedCompletionTime: Number, //The amount of time that it may take to finish the task 
 	group: Number
 });
-
 
 const CompletedTask = new mongoose.Schema({
 	userid: Object,
@@ -45,25 +43,7 @@ const Diary = new mongoose.Schema({
 	completedAt: String //Finish time of the task
 });
 
-// const Item = new mongoose.Schema({
-// 	name: {type: String, required: true},
-// 	quantity: {type: Number, min: 1, required: true},
-// 	checked: {type: Boolean, default: false, required: true}
-// }, {
-// 	_id: true
-// });
-
-
-// const List = new mongoose.Schema({
-//   user: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
-//   name: {type: String, required: true},
-// 	createdAt: {type: Date, required: true},
-// 	items: [Item]
-// });
-
-
 User.plugin(passportLocalMongoose);
-//List.plugin(URLSlugs('name'));
 
 mongoose.model('User', User);
 mongoose.model('CurrentTask', CurrentTask);
@@ -86,11 +66,9 @@ if (process.env.NODE_ENV === 'PRODUCTION') {
 	const conf = JSON.parse(data);
 	dbconf = conf.dbconf;
 } else {
-	// if we're not in PRODUCTION mode, then use
+	// if we're not in PRODUCTION mode, then use localhost db
 	dbconf = 'mongodb://localhost/TaskDiary';
 }
-
-
 
 // OPTIONAL: modify the connection code below if
 // using mongodb authentication

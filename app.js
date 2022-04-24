@@ -4,13 +4,6 @@ require('./auth');
 const express = require('express');
 const path = require('path');
 const passport = require('passport');
-//const mongoose = require('mongoose');
-//const User = mongoose.model('User');
-
-//Get the routes for login/authentication stuff
-const routes = require('./routes/index');
-//Get the components that follow '/main'
-const main = require('./routes/main');
 
 //Initialize express app
 const app = express();
@@ -24,8 +17,7 @@ app.set('view engine', 'hbs');
 //Enable sessions
 const session = require('express-session');
 const sessionOptions = {
-    //TODO: storing the secret somewhere else
-    secret: 'secret cookie thang (store this elsewhere!)',
+    secret: process.env.SECRET,
     resave: true,
     saveUninitialized: true
 };
@@ -42,25 +34,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(async (req, res, next) => {
     res.locals.user = req.user;
-    console.log(res.locals.user);
-    //console.log(res.locals.user.username);
-    //Get identifying reference number of current tasks
-    // const userData = await User.find({username: res.locals.user}).exec();
-    // res.locals.id = userData._id;
-    // //Get identifying number for current tasks
-    // res.locals.curTaskNum = userData.CurrentTasks;
-    // //Get identifying number for completed tasks
-    // res.locals.comTaskNum = userData.CurrentTasks;
-    // //Get identifying number for diary number
-    // res.locals.diaryNum = userData.Diary;
     next(); 
 });
 
+//Get the routes for login/authentication stuff
+const auth = require('./routes/index');
+//Get the components that follow '/main'
+const main = require('./routes/main');
+
 //Include the login pages.
-app.use('/', routes);
+app.use('/', auth);
 //Get the pages that connects to '/main'
 app.use('/main', main);
-
 
 //Change it so that we either have a environment port value, or just use the default.
 app.listen(process.env.PORT || 3000);

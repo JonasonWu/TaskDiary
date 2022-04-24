@@ -212,12 +212,15 @@ function handleRestart() {
     }
 }
 
-//document.addEventListener("DOMContentLoaded", main);
+document.addEventListener("DOMContentLoaded", main);
 
-//This is for unit testing of the functions using mocha. Comment out the DOMContentLoaded to run.
+/*
+//This is for unit testing of the functions using mocha. Comment out the 
+//  DOMContentLoaded and uncomment the module exports to run tests.
 module.exports = {
     generateNumbers,
     generateUpDown,
     generateAscending,
     generateDescending
 };
+*/

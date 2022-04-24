@@ -1,11 +1,13 @@
-This folder contains files for testing my web application.
+# Code Tests
 
 ## For Unit testing with JavaScript:
-* https://mochajs.org helped me figure out how mocha works.
-* The testing code from Homework 1 also helped
+* [mocha](https://mochajs.org) - ([testFunctions.js](testFunctions.js), [testRoutes.js](testRoutes.js)) works.
+* 
 
 ## For Selenium
-* https://www.lambdatest.com/blog/automation-testing-with-selenium-javascript/ gives a basic example of a test.
-* https://guru99.com/locate-by-link-text-partial-link-text.html
+* [Basic Example](https://www.lambdatest.com/blog/automation-testing-with-selenium-javascript/) - ([RouteTesting.js](RouteTesting.js))
+* [Partial link text](https://guru99.com/locate-by-link-text-partial-link-text.html) - ([RouteTesting.js](RouteTesting.js))
+* Other selenium information could be found in the [README.md](../README.md) on the "Annotations / References Used" section
 
-* The testResults folder contain the results of the test
+## Test results
+* [Results](/testResults/TestResults.png)

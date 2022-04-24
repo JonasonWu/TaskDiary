@@ -1,4 +1,5 @@
-
+//The file contains routers for: /main/diary
+//This file is incompleted.
 
 const express = require('express');
 const router = express.Router();

@@ -4,7 +4,7 @@ const expect = chai.expect;
 const modulePath = path.join(__dirname, '../public/MemoryGame/game.js');
 const funcs = require(modulePath);
 
-describe.only('memoryFunctions', function() {
+describe('memoryFunctions', function() {
     describe('generateNumbers', function() {
         it('should return an array of random integers within the range indicated', function() {
             const arr = funcs.generateNumbers(40, 100, 50);

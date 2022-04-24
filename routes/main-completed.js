@@ -1,8 +1,8 @@
+//The file contains routers for: /main/completed
 
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-//const CurrentTasks = mongoose.model('CurrentTask');
 const CompletedTasks = mongoose.model('CompletedTask');
 
 router.use((req, res, next) => {
@@ -10,18 +10,15 @@ router.use((req, res, next) => {
     next();
 });
 
-///main/completed
 router.get('/', (req, res) => {
-    CompletedTasks.find({userid: res.locals.user}, function(err, data, count) {
+    CompletedTasks.find({userid: res.locals.user}, function(err, data) {
         if (err) {
-            //res.redirect('/login');
+            //There is likely an error with the Database.
             console.error('ERROR:', err);
-            res.status(500).send("Internal Server Error");
+            res.status(500).send("Internal Server Error.");
         }
         else {
-            console.log(data);
-            console.log(count);
-            console.log();
+            //Else, input the parameters into useParams for rendering
             const useParams = {};
             if (data.length === 0) {
                 useParams.noData = true;
@@ -35,6 +32,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+    //This post request is for deleting all the completed tasks permanently
     if (req.body.delete === "true") {
         await CompletedTasks.deleteMany({userid: res.locals.user}).exec();
     }

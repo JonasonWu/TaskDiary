@@ -1,8 +1,9 @@
+//This file contains routers for: /main
+
 const express = require('express');
 const router = express.Router();
-// const mongoose = require('mongoose');
-// const CurrentTasks = mongoose.model('CurrentTask');
 
+//Add the routers for the other urls.
 const current = require('./main-current.js');
 const complete = require('./main-completed.js');
 const diary = require('./main-diary.js');
@@ -17,9 +18,6 @@ router.use((req, res, next) => {
 
 router.get('/', (req, res) => {
     res.render('main');
-    
-    //This is incorrect redirect, but for the purpose of completing milestone 2, leave it.
-    //res.redirect('/main/current');
 });
 
 module.exports = router;
