@@ -63,5 +63,10 @@ app.use('/', auth);
 //Get the pages that connects to '/main'
 app.use('/main', main);
 
+//For all pages that do not exist, throw a 404 error.
+app.get('/*', (req, res) => {
+    res.status(404).send("404. Page does not exist.");
+});
+
 //Change it so that we either have a environment port value, or just use the default.
 app.listen(process.env.PORT || 3000);
