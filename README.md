@@ -171,7 +171,7 @@ An Example Diary:
 
 1. [passport.js authentication docs](http://passportjs.org/docs) - ([db.js](db.js), [index.js](./routes/index.js))
 
-2. [selenium intro](https://www.lambdatest.com/blog/automation-testing-with-selenium-javascript/) - [RouteTesting.js](./test/RouteTesting.js)
+2. [selenium intro](https://www.lambdatest.com/blog/automation-testing-with-selenium-javascript/) - ([RouteTesting.js](./test/RouteTesting.js))
 
 3. [more selenium](https://guru99.com/locate-by-link-text-partial-link-text.html) - ([RouteTesting.js](./test/RouteTesting.js))
 
