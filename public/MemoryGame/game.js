@@ -144,10 +144,11 @@ function userPlay(arr) {
     const showLocation = document.querySelectorAll('#showArray div');
     //Record whether the game has eneded.
     let end = false;
-    //Add event listener for each box.
-    showLocation.forEach(e => {
-        const checkAnswer = function(arr, cpy, e) {
-            e.removeEventListener('click', checkAnswer);
+    const checkAnswer = function(arr, cpy, e) {
+        //Technically, the function can accept evt as input, but it is not needed.
+        return function() {
+            //Remove the event listener when the div element is clicked
+            e.removeEventListener('click', checkAnswer(arr, cpy, e));
             //If a win has already happened, no other operation should be done.
             if (end) {
                 return;
@@ -167,8 +168,11 @@ function userPlay(arr) {
                 end = true;
                 ended("win");
             }
-        }.bind(this, arr, cpy, e);
-        e.addEventListener('click', checkAnswer);
+        };
+    };
+    //Add event listener for each box.
+    showLocation.forEach(e => {
+        e.addEventListener('click', checkAnswer(arr, cpy, e));
     });
 }
 
