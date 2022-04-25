@@ -148,7 +148,9 @@ function userPlay(arr) {
         //Technically, the function can accept evt as input, but it is not needed.
         return function() {
             //Remove the event listener when the div element is clicked
-            e.removeEventListener('click', checkAnswer(arr, cpy, e));
+            //The removeEventListener does not work. Problem is likely because the id of the functions are different
+            //  Doesn't affect operation of game though.
+            //e.removeEventListener('click', checkAnswer(arr, cpy, e));
             //If a win has already happened, no other operation should be done.
             if (end) {
                 return;
