@@ -156,7 +156,7 @@ An Example Diary:
 * (5 points) Functional testing for all of my routes - Selenium
     * This is a library that is used for testing the web browser to make sure that user interactions work. It automates the user interaction, so tests can be written for it. 
     * This should solve the problem of having to test whether the web application works after every single change.
-    * Files that use selenium: [RouteTesting.js](./test/RouteTesting.js), [testRoutes.js](./test/testFunctions.js)
+    * Files that use selenium: [RouteTesting.js](./test/RouteTesting.js), [testRoutes.js](./test/testRoutes.js)
 * Results of the tests: [results](./documentation/TestResults.png)
 <!-- * (x points) Perform automatic authentication (or provide option) if the user is signed into google.
     * Other websites have ways to login through another site.
