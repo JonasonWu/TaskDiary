@@ -115,11 +115,11 @@ An Example Diary:
 
 ![completed tasks](documentation/main-completed.jpg)
 
-/main/diary - page that includes all the diary entries
+/main/diary - page that includes all the diary entries (Incomplete)
 
 ![diary entries](documentation/main-diary.jpg)
 
-/main/memoryGame - a page that consists of a game to play
+/main/memoryGame - a page that consists of a game to play.
 
 ## Site map
 
