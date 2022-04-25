@@ -10,4 +10,4 @@
 * Other selenium information could be found in the [README.md](../README.md) on the "Annotations / References Used" section
 
 ## Test results
-* [Results](/testResults/TestResults.png)
+* [Results](../documentation/TestResults.png)
