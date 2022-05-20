@@ -5,7 +5,7 @@
 
 There are many tasks to do every day. In order to keep track of the tasks to do, we may use a text document or Post-its. With so many tasks that are done each day, it will become hard to keep track of the tasks that are completed and tasks that still need to be done. However, the general result is that the details of the task will be deleted or thrown away once the task is completed. 
 
-Task Diary is a web application that attempts to keep it simple and easy to manage the tasks of the day. Some games are included as well for stress relief.
+Task Diary is a web application that attempts to keep it simple and easy to manage the tasks of a single day. Some games are included as well for stress relief.
 
 <!-- every task that the user adds to the app. Multiple timestamps will be added to each task to help the user recall the details of the task. The user could also optionally write a diary using the app, assisted by a list of completed tasks and new tasks to do. -->
 
